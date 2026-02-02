@@ -1,0 +1,39 @@
+<?php
+
+use Drupal\Core\Database\SchemaObjectExistsException;
+
+/**
+ * Implements hook_install().
+ */
+function event_registration_install() {
+  $schema = \Drupal::database()->schema();
+
+  if (!$schema->tableExists('event_config')) {
+    $schema->createTable('event_config', [
+      'fields' => [
+        'id' => ['type' => 'serial', 'not null' => TRUE],
+        'event_name' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'event_category' => ['type' => 'varchar', 'length' => 100, 'not null' => TRUE],
+        'registration_start_date' => ['type' => 'int', 'not null' => TRUE],
+        'registration_end_date' => ['type' => 'int', 'not null' => TRUE],
+        'event_date' => ['type' => 'int', 'not null' => TRUE],
+      ],
+      'primary key' => ['id'],
+    ]);
+  }
+
+  if (!$schema->tableExists('event_registration')) {
+    $schema->createTable('event_registration', [
+      'fields' => [
+        'id' => ['type' => 'serial', 'not null' => TRUE],
+        'event_id' => ['type' => 'int', 'not null' => TRUE],
+        'full_name' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'email' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'college_name' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'department' => ['type' => 'varchar', 'length' => 255, 'not null' => TRUE],
+        'created' => ['type' => 'int', 'not null' => TRUE],
+      ],
+      'primary key' => ['id'],
+    ]);
+  }
+}

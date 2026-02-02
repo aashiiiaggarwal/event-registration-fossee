@@ -1,0 +1,7 @@
+name: 'Event Registration'
+type: module
+description: 'Custom module for managing events and registrations with notifications.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies: []
+

@@ -1,0 +1,13 @@
+{
+  "name": "fossee/event_registration",
+  "type": "drupal-module",
+  "description": "Drupal 10 custom event registration module for FOSSEE task",
+  "require": {
+    "drupal/core": "^10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\event_registration\\": "modules/custom/event_registration/src/"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/**
+ * Implements hook_mail().
+ */
+function event_registration_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'registration_confirmation':
+      $message['subject'] = t('Event Registration Confirmation');
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+

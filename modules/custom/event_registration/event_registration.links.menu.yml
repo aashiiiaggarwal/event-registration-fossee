@@ -1,0 +1,7 @@
+event_registration.settings:
+  title: 'Event Configuration Page'
+  description: 'Configure event registration settings'
+  parent: system.admin_config_system
+  route_name: event_registration.settings
+  weight: 100
+
